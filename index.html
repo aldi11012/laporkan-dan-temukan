@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laporan Barang Hilang di Bandara</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Laporan Barang Hilang di Bandara</h1>
+    </header>
+
+    <div class="form-container">
+        <h2>Formulir Laporan Barang Hilang</h2>
+        <form id="report-form">
+            <label for="nama">Nama Lengkap:</label>
+            <input type="text" id="nama" name="nama" placeholder="Nama Lengkap" required>
+
+            <label for="penerbangan">Nomor Penerbangan:</label>
+            <input type="text" id="penerbangan" name="penerbangan" placeholder="Nomor Penerbangan" required>
+
+            <label for="lokasi">Lokasi Kehilangan:</label>
+            <input type="text" id="lokasi" name="lokasi" placeholder="Lokasi Terakhir Barang Ditemukan" required>
+
+            <label for="deskripsi">Deskripsi Barang:</label>
+            <textarea id="deskripsi" name="deskripsi" placeholder="Deskripsi Barang" required></textarea>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Email untuk Notifikasi" required>
+
+            <button type="submit" class="btn primary">Kirim Laporan ke WhatsApp</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Cari Barang Hilang di Bandara. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Menangani pengiriman formulir
+        document.getElementById('report-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Mencegah pengiriman form default
+
+            // Menangkap nilai dari formulir
+            const nama = document.getElementById('nama').value;
+            const penerbangan = document.getElementById('penerbangan').value;
+            const lokasi = document.getElementById('lokasi').value;
+            const deskripsi = document.getElementById('deskripsi').value;
+            const email = document.getElementById('email').value;
+
+            // Menyusun pesan untuk WhatsApp
+            const pesan = `*Laporan Barang Hilang*\n\n` +
+                `Nama: ${nama}\n` +
+                `Nomor Penerbangan: ${penerbangan}\n` +
+                `Lokasi Kehilangan: ${lokasi}\n` +
+                `Deskripsi Barang: ${deskripsi}\n` +
+                `Email: ${email}\n` +
+                `\n\nHarap segera diproses.`;
+
+            // Nomor WhatsApp tujuan (gunakan nomor WhatsApp dalam format internasional tanpa tanda '+')
+            const nomorWhatsApp = '628123456789'; // Ganti dengan nomor WhatsApp admin atau bandara
+            const urlWhatsApp = `https://wa.me/${6282192208051}?text=${encodeURIComponent(pesan)}`;
+
+            // Redirect ke WhatsApp dengan pesan yang sudah disusun
+            window.location.href = urlWhatsApp;
+        });
+    </script>
+</body>
+    <!-- Tentang Kami Section -->
+    <section id="tentang" class="section">
+        <h2>Tentang Kami</h2>
+        <p>Website ini bertujuan untuk memfasilitasi pelaporan dan pencarian barang hilang di bandara. Kami bekerja sama dengan pihak bandara untuk memastikan barang Anda dapat ditemukan dan dikembalikan dengan cepat.</p>
+    </section>
+
+    <!-- Kontak Section -->
+    <section id="kontak" class="section">
+        <h2>Kontak</h2>
+        <p>Jika Anda memiliki pertanyaan atau membutuhkan bantuan lebih lanjut, hubungi kami di:</p>
+        <p>Email: support@bandaralostandfound.com</p>
+        <p>Telepon: +62 123 456 789</p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Cari Barang Hilang di Bandara. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
